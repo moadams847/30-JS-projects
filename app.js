@@ -8,6 +8,7 @@ const value = document.querySelector("#value");
 
 btn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
+    console.log(e);
     if (e.currentTarget.classList.contains("decrease")) {
       count--;
       value.textContent = count;
