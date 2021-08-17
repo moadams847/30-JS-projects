@@ -30,37 +30,34 @@ const reviews = [
   },
 ];
 
-// select items
+// acces to dom objects
 const img = document.querySelector("#person-img");
 const author = document.querySelector("#author");
 const job = document.querySelector("#job");
 const info = document.querySelector("#info");
 
-const prevBtn = document.querySelector(".prev-btn");
+// event handles
+const prevbBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const randomBtn = document.querySelector(".random-btn");
 
-// set starting item
+// set initial index
 let currentItem = 0;
 
-// load initial item
+//show person function
+const showPerson = (person) => {
+  listItem = reviews[person];
+  img.setAttribute("src", listItem.img);
+  author.textContent = listItem.name;
+  info.textContent = listItem.text;
+};
 
 window.addEventListener("DOMContentLoaded", (event) => {
   showPerson(currentItem);
 });
 
-// show person based on item
-
-function showPerson(person) {
-  const item = reviews[person];
-  img.setAttribute("src", item.img);
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-}
-
-// show next persom
-nextBtn.addEventListener("click", function () {
+// next button
+nextBtn.addEventListener("click", () => {
   currentItem++;
   if (currentItem > reviews.length - 1) {
     currentItem = 0;
@@ -68,8 +65,8 @@ nextBtn.addEventListener("click", function () {
   showPerson(currentItem);
 });
 
-// show prev person
-prevBtn.addEventListener("click", function () {
+// prevbutton
+prevbBtn.addEventListener("click", () => {
   currentItem--;
   if (currentItem < 0) {
     currentItem = reviews.length - 1;
@@ -77,13 +74,13 @@ prevBtn.addEventListener("click", function () {
   showPerson(currentItem);
 });
 
-// random btn
+// suprise me button----
+const randomNumberGenerator = () => {
+  return Math.floor(Math.random() * reviews.length);
+};
 
-randomBtn.addEventListener("click", function () {
-  let randomNumber = randomNumberGen();
+randomBtn.addEventListener("click", () => {
+  randomNumber = randomNumberGenerator();
+  console.log(randomNumber);
   showPerson(randomNumber);
 });
-
-function randomNumberGen() {
-  return Math.floor(Math.random() * reviews.length);
-}
