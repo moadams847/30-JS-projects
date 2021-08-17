@@ -2,13 +2,10 @@
 let count = 0;
 
 const btn = document.querySelectorAll(".btn");
-// console.log(btn);
 const value = document.querySelector("#value");
-// console.log(value);
 
 btn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    console.log(e);
     if (e.currentTarget.classList.contains("decrease")) {
       count--;
       value.textContent = count;
