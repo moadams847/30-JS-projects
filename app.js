@@ -49,6 +49,7 @@ const showPerson = (person) => {
   listItem = reviews[person];
   img.setAttribute("src", listItem.img);
   author.textContent = listItem.name;
+  job.textContent = listItem.job;
   info.textContent = listItem.text;
 };
 
