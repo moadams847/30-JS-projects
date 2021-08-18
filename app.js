@@ -75,11 +75,12 @@ prevbBtn.addEventListener("click", () => {
   showPerson(currentItem);
 });
 
-// suprise me button----
+// random number generator
 const randomNumberGenerator = () => {
   return Math.floor(Math.random() * reviews.length);
 };
 
+// suprise me button----
 randomBtn.addEventListener("click", () => {
   randomNumber = randomNumberGenerator();
   showPerson(randomNumber);
