@@ -82,6 +82,5 @@ const randomNumberGenerator = () => {
 
 randomBtn.addEventListener("click", () => {
   randomNumber = randomNumberGenerator();
-  console.log(randomNumber);
   showPerson(randomNumber);
 });
